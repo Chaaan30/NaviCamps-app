@@ -2,7 +2,7 @@ package com.project.navicamps
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.navigationrail.NavigationRailView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
@@ -10,11 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Find the NavigationRailView
-        val navigationRailView = findViewById<NavigationRailView>(R.id.navigation_rail)
+        // Find the BottomNavigationView
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // Handle menu item clicks
-        navigationRailView.setOnItemSelectedListener { item ->
+        bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.map -> {
                     // Handle action for Maps item
