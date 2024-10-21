@@ -1,33 +1,27 @@
 package com.project.navicamps
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.widget.Toast
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Find the BottomNavigationView
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val loginButton: Button = findViewById(R.id.loginButton)
+        val registerButton: Button = findViewById(R.id.registerButton)
 
-        // Handle menu item clicks
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.map -> {
-                    // Handle action for Maps item
-                    Toast.makeText(this, "Maps clicked", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.emergency -> {
-                    // Handle action for Emergency item
-                    Toast.makeText(this, "Emergency clicked", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
+        loginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }
